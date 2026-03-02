@@ -1,6 +1,9 @@
 def apply_upgrade(current, upgrade):
-    # TODO: Your code here
-    pass
+    new_permissions = current.copy()
+    for perm, level in upgrade.items():
+        if perm not in current or level > current[perm]:
+            new_permissions[perm] = level
+    return new_permissions
 
 
 
